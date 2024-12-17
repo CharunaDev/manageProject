@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="713067726af34a2a9b389f0beae33f70" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblDepartment" Width="1.5" PointX="5.375" PointY="9.125" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblEmployee" Width="1.5" PointX="7.625" PointY="8.25" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblProject" Width="1.5" PointX="10.625" PointY="5" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblRole" Width="1.5" PointX="7.625" PointY="13.125" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblTaskAssign" Width="1.5" PointX="12.875" PointY="9" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.tblUser" Width="1.5" PointX="9.875" PointY="8.625" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__Employees__Depar__3A81B3271" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__EmployeeP__Emplo__3F4668441" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__Users__EmployeeI__49C3F6B71" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__EmployeeP__Proje__403A8C7D1" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__Users__RoleId__48CFD27E1" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

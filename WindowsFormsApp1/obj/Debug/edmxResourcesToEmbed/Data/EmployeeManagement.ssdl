@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblDepartment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="HireDate" Type="date" Nullable="false" />
+    <Property Name="JobTitle" Type="nvarchar" MaxLength="100" />
+    <Property Name="Salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblProjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblTaskAssign">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="AssignedDate" Type="date" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="CreateDate" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__EmployeeP__Emplo__3F466844">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+    <End Role="tblTaskAssign" Type="Self.tblTaskAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblTaskAssign">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeP__Proje__403A8C7D">
+    <End Role="tblProjects" Type="Self.tblProjects" Multiplicity="0..1" />
+    <End Role="tblTaskAssign" Type="Self.tblTaskAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProjects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblTaskAssign">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employees__Depar__3A81B327">
+    <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDepartment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__EmployeeI__49C3F6B7">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUsers">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__RoleId__48CFD27E">
+    <End Role="tblRoles" Type="Self.tblRoles" Multiplicity="1" />
+    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUsers">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmployeeManagementModelStoreContainer">
+    <EntitySet Name="tblDepartment" EntityType="Self.tblDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProjects" EntityType="Self.tblProjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRoles" EntityType="Self.tblRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTaskAssign" EntityType="Self.tblTaskAssign" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__EmployeeP__Emplo__3F466844" Association="Self.FK__EmployeeP__Emplo__3F466844">
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+      <End Role="tblTaskAssign" EntitySet="tblTaskAssign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeP__Proje__403A8C7D" Association="Self.FK__EmployeeP__Proje__403A8C7D">
+      <End Role="tblProjects" EntitySet="tblProjects" />
+      <End Role="tblTaskAssign" EntitySet="tblTaskAssign" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employees__Depar__3A81B327" Association="Self.FK__Employees__Depar__3A81B327">
+      <End Role="tblDepartment" EntitySet="tblDepartment" />
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__EmployeeI__49C3F6B7" Association="Self.FK__Users__EmployeeI__49C3F6B7">
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+      <End Role="tblUsers" EntitySet="tblUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__RoleId__48CFD27E" Association="Self.FK__Users__RoleId__48CFD27E">
+      <End Role="tblRoles" EntitySet="tblRoles" />
+      <End Role="tblUsers" EntitySet="tblUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

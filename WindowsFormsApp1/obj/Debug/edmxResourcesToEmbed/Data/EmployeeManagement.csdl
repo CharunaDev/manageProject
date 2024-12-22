@@ -5,27 +5,27 @@
     <EntitySet Name="tblEmployees" EntityType="EmployeeManagementModel.tblEmployee" />
     <EntitySet Name="tblProjects" EntityType="EmployeeManagementModel.tblProject" />
     <EntitySet Name="tblRoles" EntityType="EmployeeManagementModel.tblRole" />
-    <EntitySet Name="tblTaskAssigns" EntityType="EmployeeManagementModel.tblTaskAssign" />
     <EntitySet Name="tblUsers" EntityType="EmployeeManagementModel.tblUser" />
-    <AssociationSet Name="FK__Employees__Depar__3A81B3271" Association="EmployeeManagementModel.FK__Employees__Depar__3A81B3271">
+    <AssociationSet Name="FK__Employees__Depar__3A81B327" Association="EmployeeManagementModel.FK__Employees__Depar__3A81B327">
       <End Role="tblDepartment" EntitySet="tblDepartments" />
       <End Role="tblEmployee" EntitySet="tblEmployees" />
     </AssociationSet>
-    <AssociationSet Name="FK__EmployeeP__Emplo__3F4668441" Association="EmployeeManagementModel.FK__EmployeeP__Emplo__3F4668441">
-      <End Role="tblEmployee" EntitySet="tblEmployees" />
-      <End Role="tblTaskAssign" EntitySet="tblTaskAssigns" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Users__EmployeeI__49C3F6B71" Association="EmployeeManagementModel.FK__Users__EmployeeI__49C3F6B71">
+    <AssociationSet Name="FK__Users__EmployeeI__49C3F6B7" Association="EmployeeManagementModel.FK__Users__EmployeeI__49C3F6B7">
       <End Role="tblEmployee" EntitySet="tblEmployees" />
       <End Role="tblUser" EntitySet="tblUsers" />
     </AssociationSet>
-    <AssociationSet Name="FK__EmployeeP__Proje__403A8C7D1" Association="EmployeeManagementModel.FK__EmployeeP__Proje__403A8C7D1">
-      <End Role="tblProject" EntitySet="tblProjects" />
-      <End Role="tblTaskAssign" EntitySet="tblTaskAssigns" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Users__RoleId__48CFD27E1" Association="EmployeeManagementModel.FK__Users__RoleId__48CFD27E1">
+    <AssociationSet Name="FK__Users__RoleId__48CFD27E" Association="EmployeeManagementModel.FK__Users__RoleId__48CFD27E">
       <End Role="tblRole" EntitySet="tblRoles" />
       <End Role="tblUser" EntitySet="tblUsers" />
+    </AssociationSet>
+    <EntitySet Name="tblTaskAssigns" EntityType="EmployeeManagementModel.tblTaskAssign" />
+    <AssociationSet Name="FK__tblTaskAs__Emplo__5DCAEF64" Association="EmployeeManagementModel.FK__tblTaskAs__Emplo__5DCAEF64">
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+      <End Role="tblTaskAssign" EntitySet="tblTaskAssigns" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblTaskAs__Proje__5EBF139D" Association="EmployeeManagementModel.FK__tblTaskAs__Proje__5EBF139D">
+      <End Role="tblProject" EntitySet="tblProjects" />
+      <End Role="tblTaskAssign" EntitySet="tblTaskAssigns" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="tblDepartment">
@@ -36,7 +36,7 @@
     <Property Name="DepartmentName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Active" Type="Boolean" />
     <Property Name="CreateDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="tblEmployees" Relationship="EmployeeManagementModel.FK__Employees__Depar__3A81B3271" FromRole="tblDepartment" ToRole="tblEmployee" />
+    <NavigationProperty Name="tblEmployees" Relationship="EmployeeManagementModel.FK__Employees__Depar__3A81B327" FromRole="tblDepartment" ToRole="tblEmployee" />
   </EntityType>
   <EntityType Name="tblEmployee">
     <Key>
@@ -47,16 +47,16 @@
     <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HireDate" Type="DateTime" Precision="3" />
     <Property Name="JobTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Salary" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
     <Property Name="DepartmentId" Type="Int32" />
     <Property Name="Active" Type="Boolean" />
-    <Property Name="CreateDate" Type="DateTime" Precision="7" Nullable="false" />
-    <NavigationProperty Name="tblDepartment" Relationship="EmployeeManagementModel.FK__Employees__Depar__3A81B3271" FromRole="tblEmployee" ToRole="tblDepartment" />
-    <NavigationProperty Name="tblTaskAssigns" Relationship="EmployeeManagementModel.FK__EmployeeP__Emplo__3F4668441" FromRole="tblEmployee" ToRole="tblTaskAssign" />
-    <NavigationProperty Name="tblUsers" Relationship="EmployeeManagementModel.FK__Users__EmployeeI__49C3F6B71" FromRole="tblEmployee" ToRole="tblUser" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="7" />
     <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblDepartment" Relationship="EmployeeManagementModel.FK__Employees__Depar__3A81B327" FromRole="tblEmployee" ToRole="tblDepartment" />
+    <NavigationProperty Name="tblUsers" Relationship="EmployeeManagementModel.FK__Users__EmployeeI__49C3F6B7" FromRole="tblEmployee" ToRole="tblUser" />
+    <NavigationProperty Name="tblTaskAssigns" Relationship="EmployeeManagementModel.FK__tblTaskAs__Emplo__5DCAEF64" FromRole="tblEmployee" ToRole="tblTaskAssign" />
   </EntityType>
   <EntityType Name="tblProject">
     <Key>
@@ -66,10 +66,10 @@
     <Property Name="ProjectName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="EndDate" Type="DateTime" Precision="0" />
-    <Property Name="Active" Type="Boolean" />
-    <Property Name="CreateDate" Type="DateTime" Precision="7" Nullable="false" />
-    <NavigationProperty Name="tblTaskAssigns" Relationship="EmployeeManagementModel.FK__EmployeeP__Proje__403A8C7D1" FromRole="tblProject" ToRole="tblTaskAssign" />
-    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tblTaskAssigns" Relationship="EmployeeManagementModel.FK__tblTaskAs__Proje__5EBF139D" FromRole="tblProject" ToRole="tblTaskAssign" />
   </EntityType>
   <EntityType Name="tblRole">
     <Key>
@@ -78,20 +78,8 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Active" Type="Boolean" />
-    <Property Name="CreateDate" Type="DateTime" Precision="7" Nullable="false" />
-    <NavigationProperty Name="tblUsers" Relationship="EmployeeManagementModel.FK__Users__RoleId__48CFD27E1" FromRole="tblRole" ToRole="tblUser" />
-  </EntityType>
-  <EntityType Name="tblTaskAssign">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="EmployeeId" Type="Int32" />
-    <Property Name="ProjectId" Type="Int32" />
-    <Property Name="AssignedDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="CreateDate" Type="DateTime" Precision="7" Nullable="false" />
-    <NavigationProperty Name="tblEmployee" Relationship="EmployeeManagementModel.FK__EmployeeP__Emplo__3F4668441" FromRole="tblTaskAssign" ToRole="tblEmployee" />
-    <NavigationProperty Name="tblProject" Relationship="EmployeeManagementModel.FK__EmployeeP__Proje__403A8C7D1" FromRole="tblTaskAssign" ToRole="tblProject" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="tblUsers" Relationship="EmployeeManagementModel.FK__Users__RoleId__48CFD27E" FromRole="tblRole" ToRole="tblUser" />
   </EntityType>
   <EntityType Name="tblUser">
     <Key>
@@ -104,11 +92,11 @@
     <Property Name="RoleId" Type="Int32" Nullable="false" />
     <Property Name="EmployeeId" Type="Int32" />
     <Property Name="Active" Type="Boolean" />
-    <Property Name="CreateDate" Type="DateTime" Precision="7" Nullable="false" />
-    <NavigationProperty Name="tblEmployee" Relationship="EmployeeManagementModel.FK__Users__EmployeeI__49C3F6B71" FromRole="tblUser" ToRole="tblEmployee" />
-    <NavigationProperty Name="tblRole" Relationship="EmployeeManagementModel.FK__Users__RoleId__48CFD27E1" FromRole="tblUser" ToRole="tblRole" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="tblEmployee" Relationship="EmployeeManagementModel.FK__Users__EmployeeI__49C3F6B7" FromRole="tblUser" ToRole="tblEmployee" />
+    <NavigationProperty Name="tblRole" Relationship="EmployeeManagementModel.FK__Users__RoleId__48CFD27E" FromRole="tblUser" ToRole="tblRole" />
   </EntityType>
-  <Association Name="FK__Employees__Depar__3A81B3271">
+  <Association Name="FK__Employees__Depar__3A81B327">
     <End Type="EmployeeManagementModel.tblDepartment" Role="tblDepartment" Multiplicity="0..1" />
     <End Type="EmployeeManagementModel.tblEmployee" Role="tblEmployee" Multiplicity="*" />
     <ReferentialConstraint>
@@ -120,19 +108,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__EmployeeP__Emplo__3F4668441">
-    <End Type="EmployeeManagementModel.tblEmployee" Role="tblEmployee" Multiplicity="0..1" />
-    <End Type="EmployeeManagementModel.tblTaskAssign" Role="tblTaskAssign" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblEmployee">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="tblTaskAssign">
-        <PropertyRef Name="EmployeeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Users__EmployeeI__49C3F6B71">
+  <Association Name="FK__Users__EmployeeI__49C3F6B7">
     <End Type="EmployeeManagementModel.tblEmployee" Role="tblEmployee" Multiplicity="0..1" />
     <End Type="EmployeeManagementModel.tblUser" Role="tblUser" Multiplicity="*" />
     <ReferentialConstraint>
@@ -144,19 +120,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__EmployeeP__Proje__403A8C7D1">
-    <End Type="EmployeeManagementModel.tblProject" Role="tblProject" Multiplicity="0..1" />
-    <End Type="EmployeeManagementModel.tblTaskAssign" Role="tblTaskAssign" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblProject">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="tblTaskAssign">
-        <PropertyRef Name="ProjectId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Users__RoleId__48CFD27E1">
+  <Association Name="FK__Users__RoleId__48CFD27E">
     <End Type="EmployeeManagementModel.tblRole" Role="tblRole" Multiplicity="1" />
     <End Type="EmployeeManagementModel.tblUser" Role="tblUser" Multiplicity="*" />
     <ReferentialConstraint>
@@ -165,6 +129,43 @@
       </Principal>
       <Dependent Role="tblUser">
         <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblTaskAssign">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="AssignDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tblEmployee" Relationship="EmployeeManagementModel.FK__tblTaskAs__Emplo__5DCAEF64" FromRole="tblTaskAssign" ToRole="tblEmployee" />
+    <NavigationProperty Name="tblProject" Relationship="EmployeeManagementModel.FK__tblTaskAs__Proje__5EBF139D" FromRole="tblTaskAssign" ToRole="tblProject" />
+  </EntityType>
+  <Association Name="FK__tblTaskAs__Emplo__5DCAEF64">
+    <End Type="EmployeeManagementModel.tblEmployee" Role="tblEmployee" Multiplicity="1" />
+    <End Type="EmployeeManagementModel.tblTaskAssign" Role="tblTaskAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblTaskAssign">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblTaskAs__Proje__5EBF139D">
+    <End Type="EmployeeManagementModel.tblProject" Role="tblProject" Multiplicity="1" />
+    <End Type="EmployeeManagementModel.tblTaskAssign" Role="tblTaskAssign" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblTaskAssign">
+        <PropertyRef Name="ProjectId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

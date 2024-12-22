@@ -29,7 +29,7 @@ namespace WindowsFormsApp1.Data
         public virtual DbSet<tblEmployee> tblEmployees { get; set; }
         public virtual DbSet<tblProject> tblProjects { get; set; }
         public virtual DbSet<tblRole> tblRoles { get; set; }
-        public virtual DbSet<tblTaskAssign> tblTaskAssigns { get; set; }
         public virtual DbSet<tblUser> tblUsers { get; set; }
+        public virtual DbSet<tblTaskAssign> tblTaskAssigns { get; set; }
     }
 }

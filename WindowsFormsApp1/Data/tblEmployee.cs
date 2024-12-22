@@ -17,8 +17,8 @@ namespace WindowsFormsApp1.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblEmployee()
         {
-            this.tblTaskAssigns = new HashSet<tblTaskAssign>();
             this.tblUsers = new HashSet<tblUser>();
+            this.tblTaskAssigns = new HashSet<tblTaskAssign>();
         }
     
         public int Id { get; set; }
@@ -26,7 +26,7 @@ namespace WindowsFormsApp1.Data
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public System.DateTime HireDate { get; set; }
+        public Nullable<System.DateTime> HireDate { get; set; }
         public string JobTitle { get; set; }
         public decimal Salary { get; set; }
         public Nullable<int> DepartmentId { get; set; }
@@ -36,8 +36,8 @@ namespace WindowsFormsApp1.Data
     
         public virtual tblDepartment tblDepartment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblTaskAssign> tblTaskAssigns { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblUser> tblUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblTaskAssign> tblTaskAssigns { get; set; }
     }
 }

@@ -15,10 +15,11 @@ namespace WindowsFormsApp1.Data
     public partial class tblTaskAssign
     {
         public int Id { get; set; }
-        public Nullable<int> EmployeeId { get; set; }
-        public Nullable<int> ProjectId { get; set; }
-        public System.DateTime AssignedDate { get; set; }
+        public int EmployeeId { get; set; }
+        public int ProjectId { get; set; }
+        public System.DateTime AssignDate { get; set; }
         public System.DateTime CreateDate { get; set; }
+        public Nullable<System.DateTime> LastUpdatedDate { get; set; }
     
         public virtual tblEmployee tblEmployee { get; set; }
         public virtual tblProject tblProject { get; set; }

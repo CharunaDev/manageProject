@@ -43,6 +43,7 @@
             this.cmbEmployee = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgProjects)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,11 +51,11 @@
             // dvgProjects
             // 
             this.dvgProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgProjects.Location = new System.Drawing.Point(310, 416);
+            this.dvgProjects.Location = new System.Drawing.Point(345, 416);
             this.dvgProjects.Name = "dvgProjects";
             this.dvgProjects.ReadOnly = true;
             this.dvgProjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dvgProjects.Size = new System.Drawing.Size(945, 203);
+            this.dvgProjects.Size = new System.Drawing.Size(686, 203);
             this.dvgProjects.TabIndex = 0;
             this.dvgProjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgProjects_CellContentClick);
             // 
@@ -192,11 +193,22 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Location = new System.Drawing.Point(26, 24);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(75, 23);
+            this.btnDashboard.TabIndex = 14;
+            this.btnDashboard.Text = "Go Back";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
             // ManageProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 662);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dvgProjects);
             this.Name = "ManageProject";
@@ -225,5 +237,6 @@
         private System.Windows.Forms.ComboBox cmbEmployee;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }

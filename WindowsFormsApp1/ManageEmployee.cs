@@ -260,5 +260,12 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Error saving employee: " + ex.Message);
             }
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace WindowsFormsApp1.Data
         public string ProjectName { get; set; }
         public System.DateTime StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
-        public Nullable<bool> Active { get; set; }
+        public bool Active { get; set; }
         public System.DateTime CreateDate { get; set; }
         public Nullable<System.DateTime> LastUpdatedDate { get; set; }
     

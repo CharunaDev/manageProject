@@ -34,24 +34,13 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Operation!", "Failed!!!",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid User Creadentials!", "Login Failed!",MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             }catch(Exception ex)
             {
                 MessageBox.Show("Error!" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tbUserName_TextChanged(object sender, EventArgs e)

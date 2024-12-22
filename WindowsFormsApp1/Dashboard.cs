@@ -35,5 +35,17 @@ namespace WindowsFormsApp1
             ManageProject manageProject = new ManageProject();
             manageProject.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btntaskassign_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ManageTask task = new ManageTask();
+            task.Show();
+        }
     }
 }

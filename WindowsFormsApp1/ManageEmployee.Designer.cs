@@ -51,6 +51,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnDashboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.SuspendLayout();
             // 
@@ -251,11 +252,22 @@
             this.comboBox1.Size = new System.Drawing.Size(237, 21);
             this.comboBox1.TabIndex = 23;
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Location = new System.Drawing.Point(18, 12);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(75, 23);
+            this.btnDashboard.TabIndex = 24;
+            this.btnDashboard.Text = "Go Back";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
             // ManageEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1562, 847);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnClear);
@@ -313,5 +325,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }

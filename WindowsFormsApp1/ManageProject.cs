@@ -31,13 +31,26 @@ namespace WindowsFormsApp1
                 EndDate = x.EndDate,
                 Active = x.Active,
                 CreateDate = x.CreateDate,
-                LastUpdatedDate = x.LastUpdatedDate
+               // LastUpdatedDate = x.LastUpdatedDate
             }).ToList();
         }
         public void LoadGridView()
         {
             var list = LoadProjects();
             dvgProjects.DataSource = list;
+
+            if (!dvgProjects.Columns.Contains("Duration"))
+            {
+                var durationColumn = new DataGridViewTextBoxColumn
+                {
+                    Name = "tbDuration",
+                    HeaderText = "Duration",
+                    DataPropertyName = "Duration", 
+                    ReadOnly = true
+                };
+                dvgProjects.Columns.Add(durationColumn);
+            }
+
             var empList = _context.tblEmployees.ToList();
             cmbEmployee.DataSource = empList;
             cmbEmployee.DisplayMember = "FirstName";
@@ -64,7 +77,7 @@ namespace WindowsFormsApp1
 
                     tbProjectId.Text = query.Id.ToString();
                     tbProjectName.Text = query.ProjectName.ToString();
-                    cbActive.Checked = query.Active ?? false;
+                    cbActive.Checked = query.Active;
                     dtStartDate.Value = query.StartDate;
                     dtEndDate.Value = query.EndDate?? DateTime.Now;
 
@@ -96,7 +109,7 @@ namespace WindowsFormsApp1
                 {
                     ProjectId = project.Id,
                     EmployeeId = Convert.ToInt32(cmbEmployee.SelectedValue),
-                    AssignedDate = DateTime.Now,
+                    AssignDate = DateTime.Now,
                     CreateDate = DateTime.Now
                 };
                 _context.tblTaskAssigns.Add(task);
@@ -115,7 +128,10 @@ namespace WindowsFormsApp1
         {
             tbProjectId.Text  = string.Empty;
             tbProjectName.Text = string.Empty;
-            cmbEmployee.SelectedIndex = 0;
+            if (cmbEmployee.Items.Count > 0)
+            {
+                cmbEmployee.SelectedIndex = 0;
+            }
             dtStartDate.Value = DateTime.Now;
             dtEndDate.Value = DateTime.Now;
         }
@@ -156,8 +172,15 @@ namespace WindowsFormsApp1
             _context.tblProjects.Remove(query);
             _context.SaveChanges();
             MessageBox.Show("Deleted Successfully!");
-           // ClearData();
+            ClearData();
             LoadGridView();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
         }
     }
 }

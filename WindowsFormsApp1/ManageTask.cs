@@ -65,6 +65,9 @@ namespace WindowsFormsApp1
          
                 var employees = _context.tblEmployees.Where(e => e.DepartmentId == departmentId).ToList();
                 var employeeComboBox = (DataGridViewComboBoxCell)dgvTasks.Rows[rowIndex].Cells["cmbEmployees"];
+
+                employeeComboBox.Value = null;
+
                 employeeComboBox.DataSource = employees;
                 employeeComboBox.DisplayMember = "FirstName"; 
                 employeeComboBox.ValueMember = "Id"; 
@@ -92,6 +95,7 @@ namespace WindowsFormsApp1
 
         private void OnDepartmentChanged(int rowIndex)
         {
+            cmbEmployees.Items.Clear();
             int newValue = (int)dgvTasks.Rows[rowIndex].Cells["cmbDepartment"].Value;
             LoadEmployees(newValue, rowIndex);
         }
@@ -123,7 +127,7 @@ namespace WindowsFormsApp1
                 DateTime assignDate = dtAssignDate.Value;
                 foreach (DataGridViewRow row in dgvTasks.Rows)
                 {
-                    if (row.Cells["cmbEmployee"].Value == null) continue;
+                    if (row.Cells["cmbEmployees"].Value == null) continue;
 
                     int employeeId = Convert.ToInt32(row.Cells["cmbEmployees"].Value);
 
@@ -139,12 +143,26 @@ namespace WindowsFormsApp1
                 _context.SaveChanges();
 
                 MessageBox.Show("Task assignments saved successfully!");
-
+                Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error" + ex.Message, "Error!");
             }
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+        }
+
+        public void Clear()
+        {
+            cmbProjectList.SelectedIndex = 0;
+            dtAssignDate.Value = DateTime.Now;
+            dgvTasks.Rows.Clear();
         }
     }
 }

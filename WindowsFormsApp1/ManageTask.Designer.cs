@@ -31,14 +31,16 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.dgvTasks = new System.Windows.Forms.DataGridView();
+            this.cmbDepartment = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cmbEmployees = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.plAddTask = new System.Windows.Forms.Panel();
             this.cmbProjectList = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtAssignDate = new System.Windows.Forms.DateTimePicker();
-            this.cmbDepartment = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.cmbEmployees = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.btnAssignTask = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
             this.plAddTask.SuspendLayout();
             this.SuspendLayout();
@@ -53,19 +55,34 @@ namespace WindowsFormsApp1
             this.dgvTasks.Name = "dgvTasks";
             this.dgvTasks.Size = new System.Drawing.Size(245, 333);
             this.dgvTasks.TabIndex = 0;
+            this.dgvTasks.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTasks_CellValueChanged);
+            // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.cmbDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbDepartment.HeaderText = "Departments";
+            this.cmbDepartment.Name = "cmbDepartment";
+            // 
+            // cmbEmployees
+            // 
+            this.cmbEmployees.HeaderText = "Employees";
+            this.cmbEmployees.Name = "cmbEmployees";
+            this.cmbEmployees.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cmbEmployees.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // plAddTask
             // 
             this.plAddTask.Controls.Add(this.dgvTasks);
-            this.plAddTask.Location = new System.Drawing.Point(30, 74);
+            this.plAddTask.Location = new System.Drawing.Point(30, 135);
             this.plAddTask.Name = "plAddTask";
-            this.plAddTask.Size = new System.Drawing.Size(748, 352);
+            this.plAddTask.Size = new System.Drawing.Size(748, 291);
             this.plAddTask.TabIndex = 1;
             // 
             // cmbProjectList
             // 
             this.cmbProjectList.FormattingEnabled = true;
-            this.cmbProjectList.Location = new System.Drawing.Point(143, 34);
+            this.cmbProjectList.Location = new System.Drawing.Point(143, 49);
             this.cmbProjectList.Name = "cmbProjectList";
             this.cmbProjectList.Size = new System.Drawing.Size(157, 21);
             this.cmbProjectList.TabIndex = 2;
@@ -73,7 +90,7 @@ namespace WindowsFormsApp1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 37);
+            this.label1.Location = new System.Drawing.Point(30, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 3;
@@ -82,7 +99,7 @@ namespace WindowsFormsApp1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(339, 37);
+            this.label2.Location = new System.Drawing.Point(339, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 4;
@@ -90,27 +107,14 @@ namespace WindowsFormsApp1
             // 
             // dtAssignDate
             // 
-            this.dtAssignDate.Location = new System.Drawing.Point(424, 34);
+            this.dtAssignDate.Location = new System.Drawing.Point(424, 49);
             this.dtAssignDate.Name = "dtAssignDate";
             this.dtAssignDate.Size = new System.Drawing.Size(200, 20);
             this.dtAssignDate.TabIndex = 5;
             // 
-            // cmbDepartment
-            // 
-            this.cmbDepartment.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.cmbDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbDepartment.HeaderText = "Departments";
-            this.cmbDepartment.Name = "cmbDepartment";
-            // cmbEmployees
-            // 
-            this.cmbEmployees.HeaderText = "Employees";
-            this.cmbEmployees.Name = "cmbEmployees";
-            this.cmbEmployees.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.cmbEmployees.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // btnAssignTask
             // 
-            this.btnAssignTask.Location = new System.Drawing.Point(692, 31);
+            this.btnAssignTask.Location = new System.Drawing.Point(692, 46);
             this.btnAssignTask.Name = "btnAssignTask";
             this.btnAssignTask.Size = new System.Drawing.Size(75, 23);
             this.btnAssignTask.TabIndex = 6;
@@ -118,11 +122,32 @@ namespace WindowsFormsApp1
             this.btnAssignTask.UseVisualStyleBackColor = true;
             this.btnAssignTask.Click += new System.EventHandler(this.btnAssignTask_Click);
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.Location = new System.Drawing.Point(33, 11);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(75, 23);
+            this.btnDashboard.TabIndex = 7;
+            this.btnDashboard.Text = "Go Back";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(33, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Assign Employees";
+            // 
             // ManageTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.btnAssignTask);
             this.Controls.Add(this.dtAssignDate);
             this.Controls.Add(this.label2);
@@ -149,5 +174,7 @@ namespace WindowsFormsApp1
         private Label label2;
         private DateTimePicker dtAssignDate;
         private Button btnAssignTask;
+        private Button btnDashboard;
+        private Label label3;
     }
 }

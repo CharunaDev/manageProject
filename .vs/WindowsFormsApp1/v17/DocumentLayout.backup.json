@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\EmployeeManage\\WindowsFormsApp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{869B9871-836F-4B5E-B17D-E67D666BC524}|WindowsFormsApp1\\EmployeeManagement.csproj|d:\\projects\\employeemanage\\windowsformsapp1\\windowsformsapp1\\managetask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{869B9871-836F-4B5E-B17D-E67D666BC524}|WindowsFormsApp1\\EmployeeManagement.csproj|solutionrelative:windowsformsapp1\\managetask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{869B9871-836F-4B5E-B17D-E67D666BC524}|WindowsFormsApp1\\EmployeeManagement.csproj|d:\\projects\\employeemanage\\windowsformsapp1\\windowsformsapp1\\managetask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{869B9871-836F-4B5E-B17D-E67D666BC524}|WindowsFormsApp1\\EmployeeManagement.csproj|solutionrelative:windowsformsapp1\\managetask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{869B9871-836F-4B5E-B17D-E67D666BC524}|WindowsFormsApp1\\EmployeeManagement.csproj|d:\\projects\\employeemanage\\windowsformsapp1\\windowsformsapp1\\managetask.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{869B9871-836F-4B5E-B17D-E67D666BC524}|WindowsFormsApp1\\EmployeeManagement.csproj|solutionrelative:windowsformsapp1\\managetask.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ManageTask.Designer.cs",
+              "DocumentMoniker": "D:\\Projects\\EmployeeManage\\WindowsFormsApp1\\WindowsFormsApp1\\ManageTask.Designer.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\ManageTask.Designer.cs",
+              "ToolTip": "D:\\Projects\\EmployeeManage\\WindowsFormsApp1\\WindowsFormsApp1\\ManageTask.Designer.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\ManageTask.Designer.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwEAAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T15:18:54.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageTask.cs",
+              "DocumentMoniker": "D:\\Projects\\EmployeeManage\\WindowsFormsApp1\\WindowsFormsApp1\\ManageTask.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\ManageTask.cs",
+              "ToolTip": "D:\\Projects\\EmployeeManage\\WindowsFormsApp1\\WindowsFormsApp1\\ManageTask.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\ManageTask.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAswEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T15:18:32.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ManageTask.cs [Design]",
+              "DocumentMoniker": "D:\\Projects\\EmployeeManage\\WindowsFormsApp1\\WindowsFormsApp1\\ManageTask.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\ManageTask.cs",
+              "ToolTip": "D:\\Projects\\EmployeeManage\\WindowsFormsApp1\\WindowsFormsApp1\\ManageTask.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp1\\ManageTask.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T15:18:20.074Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
